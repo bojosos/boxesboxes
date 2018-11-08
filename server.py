@@ -5,7 +5,7 @@ import os
 
 class ClientChannel(PodSixNet.Channel.Channel):
     def Network(self, data):
-        print data
+        print(data)
     def Network_place(self, data):
         #deconsolidate all of the data from the dictionary
 
@@ -36,7 +36,7 @@ class BoxesServer(PodSixNet.Server.Server):
         self.queue = None
         self.currentIndex=0
     def Connected(self, channel, addr):
-        print 'new connection:', channel
+        print('new connection:', channel)
         if self.queue==None:
             self.currentIndex+=1
             channel.gameid=self.currentIndex
@@ -113,7 +113,7 @@ class Game:
             #send data and turn data to each player
             self.player0.Send(data)
             self.player1.Send(data)
-print "STARTING SERVER ON LOCALHOST"
+print("STARTING SERVER ON LOCALHOST")
 # try:
 host, port="localhost", int(os.environ.get('PORT', 33507))
 boxesServe = BoxesServer(localaddr=(host, int(port)))

@@ -2,6 +2,7 @@ import PodSixNet.Channel
 import PodSixNet.Server
 from time import sleep
 import os
+import sys
 
 class ClientChannel(PodSixNet.Channel.Channel):
     def Network(self, data):
@@ -114,9 +115,9 @@ class Game:
             self.player0.Send(data)
             self.player1.Send(data)
 print("STARTING SERVER ON LOCALHOST")
-# try:
-host, port="localhost", int(os.environ.get('PORT', 33507))
-boxesServe = BoxesServer(localaddr=(host, int(port)))
+host, port="localhost", int(sys.argv[1])
+print("Sserver started at ", host, port)
+boxesServe = BoxesServer(localaddr=(host, port))
 while True:
     boxesServe.tick()
     sleep(0.01)

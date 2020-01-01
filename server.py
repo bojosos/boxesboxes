@@ -115,7 +115,7 @@ class Game:
             self.player0.Send(data)
             self.player1.Send(data)
 print("STARTING SERVER ON LOCALHOST")
-host, port="http://localhost", int(sys.argv[1])
+host, port="localhost", int(sys.argv[1])
 print("Sserver started at ", host, port)
 boxesServe = BoxesServer(localaddr=(host, port))
 while True:
